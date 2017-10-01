@@ -1,3 +1,12 @@
+#### 优化一览 2017-10-01
+- 压缩css文件
+- 由于国内服务其的限制，所以我将所有需要连接到外网的图片和js文件都下载到本地进行加载
+- js压缩
+- 图片进行了尺寸的改变，并对首页的图片进行了雪碧图处理
+- print.css文件统一使用了媒体查询
+- js文件采用async加载
+- pizza.html的优化仍有问题，目前勉强到90分，但方法是将css和js文件都进行压缩，并写入html进行加载
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
