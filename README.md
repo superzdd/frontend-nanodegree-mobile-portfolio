@@ -20,8 +20,8 @@
 		- 获取所有pizza的集合之后，将集合赋值给变量进行调用，避免反复获取集合的操作
 		
 ##### 项目确认
-- `index` 请直接运行`index.html` 进行去人
-- `pizza` 请运行`dist` 中的`pizza.html` 进行去人
+- `index` 请直接运行`index.html` 进行确认
+- `pizza` 请运行`dist` 中的`pizza.html` 进行确认
 - 我在外网上已经部署了两个链接，用于page speed的测试，您也可以直接访问这一链接检查效果
 	- http://dev.herdsric.com:230/index.html
 	- http://dev.herdsric.com:230/views/pizza.html
