@@ -19,7 +19,7 @@
 		- 将读写width以及offsetWidth的地方隔离开
 		- 获取所有pizza的集合之后，将集合赋值给变量进行调用，避免反复获取集合的操作
 	
-
+#### 项目要求完成情况
 - [x] **关键渲染路径** index.html 在移动设备和桌面上的 PageSpeed 分数至少为90分。
 - [x] **帧速** 对 views/js/main.js 进行的优化可使 views/pizza.html 在滚动时保持 60fps 的帧速。
 - [x] **计算效率** 利用 views/pizza.html 页面上的 pizza 尺寸滑块调整 pizza 大小的时间小于5毫秒，大小的调整时间在浏览器开发工具中显示。
