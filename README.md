@@ -1,64 +1,28 @@
-#### 优化一览 2017-10-01
-- 压缩css文件
-- 由于国内服务器的限制，所以我将所有需要连接到外网的图片和js文件都下载到本地进行加载
-- js压缩
+#### 优化一览 
+
+##### index
+- 压缩`css` 文件
+- 由于国内服务器的限制，所以我将所有需要连接到外网的图片和`js` 文件都下载到本地进行加载
+- `js` 压缩
 - 图片进行了尺寸的改变，并对首页的图片进行了雪碧图处理
-- print.css文件统一使用了媒体查询
-- js文件采用async加载
-- pizza.html的优化仍有问题，目前勉强到90分，但方法是将css和js文件都进行压缩，并写入html进行加载
+- `print.css` 文件统一使用了媒体查询
+- `js` 文件采用`async` 加载
 
-## Website Performance Optimization portfolio project
+##### pizza
+- 使用`gulp` 将`html` ,`css` ,`js` 文件进行压缩工作
+- 性能调优方面
+	- 优化了页面滚动时的体验，帧数上升到60帧
+		- 滚动发生时，设置pizza位置的参数由left改为transform
+		- 滚动发生时，大部分浏览器无法监听`scrollTop` 属性，改为使用`scrollY` 属性
+		- 执行动画放入rAF中
+	- 优化了调整pizza大小时的响应速度
+		- 将读写width以及offsetWidth的地方隔离开
+		- 获取所有pizza的集合之后，将集合赋值给变量进行调用，避免反复获取集合的操作
+	
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+- [x] **关键渲染路径** index.html 在移动设备和桌面上的 PageSpeed 分数至少为90分。
+- [x] **帧速** 对 views/js/main.js 进行的优化可使 views/pizza.html 在滚动时保持 60fps 的帧速。
+- [x] **计算效率** 利用 views/pizza.html 页面上的 pizza 尺寸滑块调整 pizza 大小的时间小于5毫秒，大小的调整时间在浏览器开发工具中显示。
+- [x] **README** README 文件含有成功运行应用所需的所有详细步骤以及学生在 index.html 和 views/js/main.js 中对 pizza.html 进行的优化概述。
+- [x] **注释** views/js/main.js 中含有 pizza.html 的注释，其能有效解释较长代码程序。
 
-To get started, check out the repository and inspect the code.
-
-### Getting started
-
-#### Part 1: Optimize PageSpeed Insights score for index.html
-
-Some useful tips to help you get started:
-
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-#### Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
